@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8fb">
+  <meta name="description" content="Расписание занятий: верхняя и нижняя недели.">
+  <title>Расписание</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <main class="layout">
+    <div class="controls">
+      <div class="date-heading" aria-live="polite">
+        <h1 id="dateRange">—</h1>
+      </div>
+      <div class="controls-right">
+        <div class="week-switch" role="group" aria-label="Неделя расписания">
+          <button type="button" id="upperWeek" data-week="upper" aria-pressed="false">Верхняя</button>
+          <button type="button" id="lowerWeek" data-week="lower" aria-pressed="false">Нижняя</button>
+        </div>
+        <button type="button" id="openSettings" class="icon-button" aria-label="Настройки" title="Настройки">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/>
+            <path d="M19.3 13.6c.17-1.05.17-2.15 0-3.2l1.5-1.18-1.7-2.94-1.87.68a8.1 8.1 0 0 0-2.76-1.6L14.12 3h-3.4l-.35 2.36c-1.01.34-1.94.88-2.76 1.6l-1.87-.68-1.7 2.94 1.5 1.18a9.7 9.7 0 0 0 0 3.2l-1.5 1.18 1.7 2.94 1.87-.68a8.1 8.1 0 0 0 2.76 1.6L10.72 21h3.4l.35-2.36c1.01-.34 1.94-.88 2.76-1.6l1.87.68 1.7-2.94-1.5-1.18Z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="schedule" class="schedule" aria-live="polite"></div>
+  </main>
+
+  <dialog id="settingsDialog" class="settings" aria-labelledby="settingsTitle">
+    <div class="settings-heading">
+      <h2 id="settingsTitle">Настройки</h2>
+      <button type="button" id="closeSettings" class="icon-button close-button" aria-label="Закрыть настройки">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M6 6 18 18M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <label class="setting-row" for="showEmptyDays">
+      <span class="setting-copy"><strong>Все дни недели</strong><small>Показывать и дни без занятий</small></span>
+      <span class="switch"><input type="checkbox" id="showEmptyDays"><span class="switch-track"></span></span>
+    </label>
+    <div class="setting-row theme-row">
+      <span class="setting-copy"><strong>Тема</strong><small>Оформление расписания</small></span>
+      <div class="theme-switch" role="group" aria-label="Выбор темы">
+        <button type="button" data-theme="system">Авто</button>
+        <button type="button" data-theme="light">Светлая</button>
+        <button type="button" data-theme="dark">Тёмная</button>
+      </div>
+    </div>
+    <p class="settings-footnote">Расписание автоматически меняется каждую неделю. Настройки сохраняются в браузере.</p>
+  </dialog>
+</body>
+</html>
